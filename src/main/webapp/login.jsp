@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="public/css/style.css">
-    <link rel="stylesheet" href="public/lib/bootstrap/bootstrap.css">
-    <script src = "public/lib/bootstrap/popper.min.js"></script>
-    <script src = "public/lib/bootstrap/bootstrap.js"></script>
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/lib/bootstrap/bootstrap.css">
+    <script src = "../public/lib/bootstrap/popper.min.js"></script>
+    <script src = "../public/lib/bootstrap/bootstrap.js"></script>
 
 </head>
 <body>
