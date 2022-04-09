@@ -26,6 +26,11 @@ public class productsQueries extends DBConnect {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+            try {
+                getConnect().close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return data;
     }
