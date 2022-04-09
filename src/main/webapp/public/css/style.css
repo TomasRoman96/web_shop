@@ -9,6 +9,10 @@ body{
     background-color: #202020 !important;
 }
 
+.dataTables_wrapper{
+    color: white !important;
+}
+
 .form-container{
     width: 80vh !important;
 }

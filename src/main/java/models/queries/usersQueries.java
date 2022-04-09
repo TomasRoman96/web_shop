@@ -27,4 +27,32 @@ public class usersQueries extends DBConnect{
         }
         return respQuery;
     }
+
+    public ArrayList<User> login(User U) {
+        ArrayList<User> data = new ArrayList<User>();
+        try {
+            String sql = "call getSpecificUser(?,?)";
+            PreparedStatement statement = getConnect().prepareStatement(sql);
+            statement.setString(1, U.getUserName());
+            statement.setString(2, U.getPassword());
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                User US = new User();
+                US.setUserName(resultSet.getString("USERNAME"));
+                US.setPassword(resultSet.getString("PASSWORD"));
+                data.add(US);
+            }
+            statement.close();
+            resultSet.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                getConnect().close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return data;
+    }
 }

@@ -10,28 +10,46 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import models.queries.*;
 import models.objects.*;
+import models.procedures.*;
 
 @WebServlet(name = "usersController", urlPatterns = {"/usersController"})
 
 public class usersController extends HttpServlet{
     usersQueries UQ = new usersQueries();
+    validateForms VF = new validateForms();
 
     public String insertUser(User U){
         String respQuery = UQ.insertNewUser(U);
         return respQuery;
     }
 
+    public ArrayList<User> login(User U){
+        ArrayList<User> respQuery = UQ.login(U);
+        return respQuery;
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter out = resp.getWriter();
+        User U = new User();
         switch(req.getParameter("action")){
-            case "login":
-            User U = new User();
+            case "register":
             U.setName(req.getParameter("name").toUpperCase());
             U.setUserName(req.getParameter("username").toUpperCase());
             U.setPassword(req.getParameter("password").toUpperCase());
             String respQuery = insertUser(U);
-            PrintWriter out = resp.getWriter();
             out.print(respQuery);
+            out.flush();
+            break;
+            case "login":
+            String response = "Usuario no encontrado";
+            U.setUserName(req.getParameter("username"));
+            U.setPassword(req.getParameter("password"));
+            ArrayList<User> respQueryLogin = login(U);
+            if(respQueryLogin.size() > 0){
+                response = VF.validateLogin(respQueryLogin,U,req);
+            }
+            out.print(response);
             out.flush();
             break;
         }

@@ -7,7 +7,7 @@ const GLOB = {
 
 const saveUser = () => {
   ajaxCall("usersController", {
-    action: "login",
+    action: "register",
     name: GLOB.input_name.value,
     username: GLOB.input_username.value,
     password: GLOB.input_password.value,
@@ -21,16 +21,16 @@ const ajaxCall = (url, data) => {
     data: data,
   }).done((resp) => {
     switch (data.action) {
-      case "login":
-          ajaxRespLogin(resp);
+      case "register":
+          ajaxRespRegister(resp);
         break;
     }
   });
 };
 
-const ajaxRespLogin = (resp) =>{
-    resp =! "success" ? (alertify.error('No se ha logrado crear el usuario, intente nuevamente.')) : 
-    (alertify.success('Se ha creado su cuenta, sera redireccionado a la pagina de login.'),setTimeout(() => {location.href('login.jsp');}, 5000))
+const ajaxRespRegister = (resp) =>{
+    resp != "success" ? (alertify.error('No se ha logrado crear el usuario, intente nuevamente.')) : 
+    (alertify.success('Se ha creado su cuenta, sera redireccionado a la pagina de login.'),setTimeout(() => {location.href = 'login.jsp';}, 3000))
 }
 
 GLOB.register_button.addEventListener("click", saveUser);

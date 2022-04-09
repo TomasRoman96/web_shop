@@ -1,5 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%
+if (session != null) {
+   if (session.getAttribute("User") != null) {
+    response.sendRedirect("dashboard.jsp");
+   }
+}
+%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,9 +16,11 @@
     <title>Login</title>
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/lib/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="public/lib/alertify/css/alertify.css">
     <script src = "public/lib/jquery/jquery.js"></script>
     <script src = "public/lib/bootstrap/popper.min.js"></script>
     <script src = "public/lib/bootstrap/bootstrap.js"></script>
+    <script src = "public/lib/alertify/alertify.js"></script>
 </head>
 <body>
   <section id = "login-form">
