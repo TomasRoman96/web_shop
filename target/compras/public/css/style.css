@@ -13,6 +13,22 @@ body{
     color: white !important;
 }
 
+.dataTables_wrapper td{
+    color: black !important;
+}
+
+.dataTables_info{
+    color: white !important;
+}
+
+.dataTables_paginate{
+    color: white !important;
+}
+
+.paginate_button{
+    color: white !important;
+}
+
 .form-container{
     width: 80vh !important;
 }

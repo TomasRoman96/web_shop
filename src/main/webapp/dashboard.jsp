@@ -29,7 +29,7 @@ if (session != null) {
     <section id = "navbar">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="/">Web Shop - Panel de Usuario</a>
+              <a class="navbar-brand" href="index.jsp">Web Shop - Panel de Usuario</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -50,7 +50,7 @@ if (session != null) {
         <div class="container table_orders">
             <h1 class="display-3 text-center" id = "w-username" data-id = <%out.print(session.getAttribute("User"));%>>Bienvenido <%out.print(session.getAttribute("User"));%> </h1>
             <br>
-            <table id="orders" class="table-responsive table-light">
+            <table id="orders" class="table-responsive">
             <thead>
                 <tr>
                     <th>ID DE ORDEN</th>

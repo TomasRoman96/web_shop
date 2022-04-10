@@ -88,7 +88,7 @@ const dataTableBuilderEventsClick = (tableId,HTMLId,action) =>{
     switch(action){
       case "view_order_details":
       {
-        let orderId = $(this).closest("tr").find("td:eq(0)").text();
+        let orderId = $(HTMLId).closest("tr").find("td:eq(0)").text();
         viewOrderDetails(orderId);
         break;
       }

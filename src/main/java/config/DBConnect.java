@@ -11,9 +11,9 @@ public class DBConnect {
 
 		Connection con = DriverManager.getConnection(url, username, password);
 		if (con != null) {
-			System.out.println("Database Connected successfully");
+			System.out.println("Conectado a mysql");
 		} else {
-			System.out.println("Database Connection failed");
+			System.out.println("Ha fallado la conexion");
 		}
         return con;
 	}

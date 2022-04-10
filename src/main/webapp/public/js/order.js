@@ -1,5 +1,5 @@
 const GLOB = {
-    orderId: $("w-orderid").attr("data-id") 
+    orderId: $("#w-orderid").attr("data-id") 
   };
   
   const dataTableCustomize = {
@@ -38,6 +38,7 @@ const GLOB = {
       url: url,
       data: data,
     }).done((resp) => {
+      console.log(resp);
       switch (data.action) {
         case "getOrderInfo":
           ajaxRespgetOrderInfo(resp);
